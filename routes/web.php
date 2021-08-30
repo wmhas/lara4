@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Reports\MyReport;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,5 +14,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return "etrete";
+    $report = new MyReport;
+    $report->run();
+    return view("report",["report"=>$report]);
 });
