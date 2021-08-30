@@ -14,8 +14,11 @@ use App\Reports\MyReport;
 */
 
 Route::get('/', function () {
-    //return "etrete";
     $report = new MyReport;
     $report->run();
     return view("report",["report"=>$report]);
+});
+
+Route::get('/demo1', function () {
+    return view("demoreport1");
 });
