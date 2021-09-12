@@ -19,6 +19,18 @@ Route::get('/', function () {
     return view("report",["report"=>$report]);
 });
 
-Route::get('/demo1', function () {
-    return view("demoreport1");
+
+Route::get('/demo1', function () { return view("demoreport1"); })->middleware('age');
+
+Route::get('/login', function () {
+    return view("login");
 });
+
+
+Route::group(['middleware'=>['webGroup']], function () {
+
+    Route::get('/demo2', function () { return view("middlewaredemo2"); });
+
+});
+
+
